@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>动设备管理平台</title>
+    <!--现在的css样式还没有想好，我先写出需要的内容后续再调整样式-->
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="caozuo.js">
+    </script>
+</head>
+<body>
+
+<h1>
+    动设备管理平台
+</h1>
+<hr>
+<div style="background-color: bisque">
+<h2>导航栏</h2>
+<table>
+    <tr>
+        <td>
+            <form method="get" action="iframeback.html" target="iframe-a" >
+                <button id="btn01" type="submit" value="息资产信">资产信息</button >
+            </form>
+        </td>
+        <td>
+            <form method="get" action="iframeback.html" target="iframe-a">
+                <button id="btn02" type="submit" value="资产变动表">资产变动表</button >
+            </form>
+        </td>
+    </tr>
+</table>
+</div>
+<hr>
+
+<!--<div>
+    <form method="post">
+        用户名：<input type="text" name="username"><br>
+        密码：<input type="password" name="password" ><br>
+        <input type="submit" value="提交">
+    </form>
+</div>-->
+<iframe width="500" height="200" name="iframe-a" src="iframeback.html"></iframe>
+<!--我打算用这个iframe框架来显示数据库中的表格-->
+<hr>
+<div style="background-color: bisque">
+    <button id="xiugaiall">编辑</button>
+    <!--此处按钮仅代表需要在整张表的基础上修改功能。-->
+    <button id="download">下载</button>
+</div>
+</body>
+</html>

@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ampserver.mbg.mapper.AssetsMapper">
+  <resultMap id="BaseResultMap" type="com.ampserver.mbg.model.Assets">
+    <id column="pk_Id" jdbcType="INTEGER" property="pk_Id" />
+    <result column="location" jdbcType="VARCHAR" property="location" />
+    <result column="tpe" jdbcType="VARCHAR" property="tpe" />
+    <result column="pump_head" jdbcType="INTEGER" property="pump_head" />
+    <result column="flow" jdbcType="INTEGER" property="flow" />
+    <result column="rpm" jdbcType="INTEGER" property="rpm" />
+    <result column="quality" jdbcType="INTEGER" property="quality" />
+    <result column="spare_part" jdbcType="VARCHAR" property="spare_part" />
+    <result column="powr" jdbcType="INTEGER" property="powr" />
+    <result column="factory_tim" jdbcType="TIMESTAMP" property="factory_tim" />
+    <result column="factory_num" jdbcType="VARCHAR" property="factory_num" />
+    <result column="factory_nam" jdbcType="INTEGER" property="factory_nam" />
+    <result column="category" jdbcType="VARCHAR" property="category" />
+    <result column="remake" jdbcType="VARCHAR" property="remake" />
+    <result column="create_tim" jdbcType="TIMESTAMP" property="create_tim" />
+    <result column="correction_tim" jdbcType="TIMESTAMP" property="correction_tim" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    pk_Id, location, tpe, pump_head, flow, rpm, quality, spare_part, powr, factory_tim, 
+    factory_num, factory_nam, category, remake, create_tim, correction_tim
+  </sql>
+  <select id="selectByExample" parameterType="com.ampserver.mbg.model.AssetsExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from assets
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from assets
+    where pk_Id = #{pk_Id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from assets
+    where pk_Id = #{pk_Id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.ampserver.mbg.model.AssetsExample">
+    delete from assets
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.ampserver.mbg.model.Assets">
+    insert into assets (pk_Id, location, tpe, 
+      pump_head, flow, rpm, 
+      quality, spare_part, powr, 
+      factory_tim, factory_num, factory_nam, 
+      category, remake, create_tim, 
+      correction_tim)
+    values (#{pk_Id,jdbcType=INTEGER}, #{location,jdbcType=VARCHAR}, #{tpe,jdbcType=VARCHAR}, 
+      #{pump_head,jdbcType=INTEGER}, #{flow,jdbcType=INTEGER}, #{rpm,jdbcType=INTEGER}, 
+      #{quality,jdbcType=INTEGER}, #{spare_part,jdbcType=VARCHAR}, #{powr,jdbcType=INTEGER}, 
+      #{factory_tim,jdbcType=TIMESTAMP}, #{factory_num,jdbcType=VARCHAR}, #{factory_nam,jdbcType=INTEGER}, 
+      #{category,jdbcType=VARCHAR}, #{remake,jdbcType=VARCHAR}, #{create_tim,jdbcType=TIMESTAMP}, 
+      #{correction_tim,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ampserver.mbg.model.Assets">
+    insert into assets
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pk_Id != null">
+        pk_Id,
+      </if>
+      <if test="location != null">
+        location,
+      </if>
+      <if test="tpe != null">
+        tpe,
+      </if>
+      <if test="pump_head != null">
+        pump_head,
+      </if>
+      <if test="flow != null">
+        flow,
+      </if>
+      <if test="rpm != null">
+        rpm,
+      </if>
+      <if test="quality != null">
+        quality,
+      </if>
+      <if test="spare_part != null">
+        spare_part,
+      </if>
+      <if test="powr != null">
+        powr,
+      </if>
+      <if test="factory_tim != null">
+        factory_tim,
+      </if>
+      <if test="factory_num != null">
+        factory_num,
+      </if>
+      <if test="factory_nam != null">
+        factory_nam,
+      </if>
+      <if test="category != null">
+        category,
+      </if>
+      <if test="remake != null">
+        remake,
+      </if>
+      <if test="create_tim != null">
+        create_tim,
+      </if>
+      <if test="correction_tim != null">
+        correction_tim,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pk_Id != null">
+        #{pk_Id,jdbcType=INTEGER},
+      </if>
+      <if test="location != null">
+        #{location,jdbcType=VARCHAR},
+      </if>
+      <if test="tpe != null">
+        #{tpe,jdbcType=VARCHAR},
+      </if>
+      <if test="pump_head != null">
+        #{pump_head,jdbcType=INTEGER},
+      </if>
+      <if test="flow != null">
+        #{flow,jdbcType=INTEGER},
+      </if>
+      <if test="rpm != null">
+        #{rpm,jdbcType=INTEGER},
+      </if>
+      <if test="quality != null">
+        #{quality,jdbcType=INTEGER},
+      </if>
+      <if test="spare_part != null">
+        #{spare_part,jdbcType=VARCHAR},
+      </if>
+      <if test="powr != null">
+        #{powr,jdbcType=INTEGER},
+      </if>
+      <if test="factory_tim != null">
+        #{factory_tim,jdbcType=TIMESTAMP},
+      </if>
+      <if test="factory_num != null">
+        #{factory_num,jdbcType=VARCHAR},
+      </if>
+      <if test="factory_nam != null">
+        #{factory_nam,jdbcType=INTEGER},
+      </if>
+      <if test="category != null">
+        #{category,jdbcType=VARCHAR},
+      </if>
+      <if test="remake != null">
+        #{remake,jdbcType=VARCHAR},
+      </if>
+      <if test="create_tim != null">
+        #{create_tim,jdbcType=TIMESTAMP},
+      </if>
+      <if test="correction_tim != null">
+        #{correction_tim,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.ampserver.mbg.model.AssetsExample" resultType="java.lang.Long">
+    select count(*) from assets
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update assets
+    <set>
+      <if test="record.pk_Id != null">
+        pk_Id = #{record.pk_Id,jdbcType=INTEGER},
+      </if>
+      <if test="record.location != null">
+        location = #{record.location,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tpe != null">
+        tpe = #{record.tpe,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pump_head != null">
+        pump_head = #{record.pump_head,jdbcType=INTEGER},
+      </if>
+      <if test="record.flow != null">
+        flow = #{record.flow,jdbcType=INTEGER},
+      </if>
+      <if test="record.rpm != null">
+        rpm = #{record.rpm,jdbcType=INTEGER},
+      </if>
+      <if test="record.quality != null">
+        quality = #{record.quality,jdbcType=INTEGER},
+      </if>
+      <if test="record.spare_part != null">
+        spare_part = #{record.spare_part,jdbcType=VARCHAR},
+      </if>
+      <if test="record.powr != null">
+        powr = #{record.powr,jdbcType=INTEGER},
+      </if>
+      <if test="record.factory_tim != null">
+        factory_tim = #{record.factory_tim,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.factory_num != null">
+        factory_num = #{record.factory_num,jdbcType=VARCHAR},
+      </if>
+      <if test="record.factory_nam != null">
+        factory_nam = #{record.factory_nam,jdbcType=INTEGER},
+      </if>
+      <if test="record.category != null">
+        category = #{record.category,jdbcType=VARCHAR},
+      </if>
+      <if test="record.remake != null">
+        remake = #{record.remake,jdbcType=VARCHAR},
+      </if>
+      <if test="record.create_tim != null">
+        create_tim = #{record.create_tim,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.correction_tim != null">
+        correction_tim = #{record.correction_tim,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update assets
+    set pk_Id = #{record.pk_Id,jdbcType=INTEGER},
+      location = #{record.location,jdbcType=VARCHAR},
+      tpe = #{record.tpe,jdbcType=VARCHAR},
+      pump_head = #{record.pump_head,jdbcType=INTEGER},
+      flow = #{record.flow,jdbcType=INTEGER},
+      rpm = #{record.rpm,jdbcType=INTEGER},
+      quality = #{record.quality,jdbcType=INTEGER},
+      spare_part = #{record.spare_part,jdbcType=VARCHAR},
+      powr = #{record.powr,jdbcType=INTEGER},
+      factory_tim = #{record.factory_tim,jdbcType=TIMESTAMP},
+      factory_num = #{record.factory_num,jdbcType=VARCHAR},
+      factory_nam = #{record.factory_nam,jdbcType=INTEGER},
+      category = #{record.category,jdbcType=VARCHAR},
+      remake = #{record.remake,jdbcType=VARCHAR},
+      create_tim = #{record.create_tim,jdbcType=TIMESTAMP},
+      correction_tim = #{record.correction_tim,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ampserver.mbg.model.Assets">
+    update assets
+    <set>
+      <if test="location != null">
+        location = #{location,jdbcType=VARCHAR},
+      </if>
+      <if test="tpe != null">
+        tpe = #{tpe,jdbcType=VARCHAR},
+      </if>
+      <if test="pump_head != null">
+        pump_head = #{pump_head,jdbcType=INTEGER},
+      </if>
+      <if test="flow != null">
+        flow = #{flow,jdbcType=INTEGER},
+      </if>
+      <if test="rpm != null">
+        rpm = #{rpm,jdbcType=INTEGER},
+      </if>
+      <if test="quality != null">
+        quality = #{quality,jdbcType=INTEGER},
+      </if>
+      <if test="spare_part != null">
+        spare_part = #{spare_part,jdbcType=VARCHAR},
+      </if>
+      <if test="powr != null">
+        powr = #{powr,jdbcType=INTEGER},
+      </if>
+      <if test="factory_tim != null">
+        factory_tim = #{factory_tim,jdbcType=TIMESTAMP},
+      </if>
+      <if test="factory_num != null">
+        factory_num = #{factory_num,jdbcType=VARCHAR},
+      </if>
+      <if test="factory_nam != null">
+        factory_nam = #{factory_nam,jdbcType=INTEGER},
+      </if>
+      <if test="category != null">
+        category = #{category,jdbcType=VARCHAR},
+      </if>
+      <if test="remake != null">
+        remake = #{remake,jdbcType=VARCHAR},
+      </if>
+      <if test="create_tim != null">
+        create_tim = #{create_tim,jdbcType=TIMESTAMP},
+      </if>
+      <if test="correction_tim != null">
+        correction_tim = #{correction_tim,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where pk_Id = #{pk_Id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ampserver.mbg.model.Assets">
+    update assets
+    set location = #{location,jdbcType=VARCHAR},
+      tpe = #{tpe,jdbcType=VARCHAR},
+      pump_head = #{pump_head,jdbcType=INTEGER},
+      flow = #{flow,jdbcType=INTEGER},
+      rpm = #{rpm,jdbcType=INTEGER},
+      quality = #{quality,jdbcType=INTEGER},
+      spare_part = #{spare_part,jdbcType=VARCHAR},
+      powr = #{powr,jdbcType=INTEGER},
+      factory_tim = #{factory_tim,jdbcType=TIMESTAMP},
+      factory_num = #{factory_num,jdbcType=VARCHAR},
+      factory_nam = #{factory_nam,jdbcType=INTEGER},
+      category = #{category,jdbcType=VARCHAR},
+      remake = #{remake,jdbcType=VARCHAR},
+      create_tim = #{create_tim,jdbcType=TIMESTAMP},
+      correction_tim = #{correction_tim,jdbcType=TIMESTAMP}
+    where pk_Id = #{pk_Id,jdbcType=INTEGER}
+  </update>
+</mapper>

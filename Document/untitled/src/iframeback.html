@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="caozuo.js" ></script>
+    <script src="a.JS"></script>
+  <style>
+    body{
+        background-color:bisque;
+    }
+    #tableall01{
+        border-style: inset;
+        border-color: blanchedalmond;
+    }
+    #table01{
+
+        border-collapse: collapse;
+    }
+    #table01,td,th{
+        border: 1px solid black;
+    }
+  </style>
+</head>
+<body>
+<div id="tableall01">
+ 这里是iframe的位置
+    <table id="table01" >
+        <tr>
+            <th>位号</th><th>型号</th>
+        </tr>
+        <tr>
+            <td>你好</td> <td>你好</td><td><button id="xiugai01">编辑</button></td>
+            <!--此处按钮仅代表需要这个功能。-->
+        </tr>
+        <tr>
+            <td>这里是模拟数据</td><td>这里是模拟数据</td><td><button id="xiugai02">编辑</button></td>
+        </tr>
+    </table>
+</div>
+<div>
+    <div id="testfor01">
+        <p>此处用来打印表格</p>
+        <p id="ptotest01"></p>
+    </div>
+    <button id="testfor02">测试按钮</button>
+</div>
+</body>
+</html>

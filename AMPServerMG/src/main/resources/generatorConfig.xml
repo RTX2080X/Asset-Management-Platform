@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <!-- 配置文件的路径 -->
+    <properties resource="generator.properties"/>
+    <context id="MySqlContext" targetRuntime="MyBatis3" defaultModelType="flat">
+        <!-- 指明数据库的用于标记数据库对象的符号，oracle用双引号"，mysql用`反引号 -->
+        <property name="beginningDelimiter" value="`"/>
+        <property name="endingDelimiter" value="`"/>
+        <!-- 生成的Java编码 -->
+        <property name="javaFileEncoding" value="UTF-8"/>
+        <!-- 为模型生成序列化方法-->
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
+        <!-- 为生成的Java模型创建一个toString方法 -->
+        <plugin type="org.mybatis.generator.plugins.ToStringPlugin"/>
+        <!-- 多次生成Mapper.Xml不重复 -->
+        <plugin type="org.mybatis.generator.plugins.UnmergeableXmlMappersPlugin"/>
+        <!-- 格式化Java代码 -->
+        <!--                <plugin type="org.mybatis.generator.api.dom.DefaultJavaFormatter"/>-->
+        <!-- 格式化XML代码 -->
+        <!--        <plugin type="org.mybatis.generator.api.dom.DefaultXmlFormatter"/>-->
+        <!--可以自定义生成model的代码注释-->
+        <commentGenerator type="com.ampserver.utils.CommentGenerator">
+            <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+            <property name="suppressAllComments" value="true"/>
+            <!-- 是否生成数据库备注信息,只有suppressAllComments为false生效 -->
+            <property name="addRemarkComments" value="true"/>
+            <!-- 不希望生成注释时间戳 -->
+            <property name="suppressDate" value="true"/>
+            <!-- 生成时间戳的格式 -->
+            <property name="dateFormat" value="yyyy-MM-dd HH:mm:ss "/>
+        </commentGenerator>
+        <!--配置数据库连接-->
+        <jdbcConnection driverClass="${jdbc.driverClass}"
+                        connectionURL="${jdbc.connectionURL}"
+                        userId="${jdbc.userId}"
+                        password="${jdbc.password}">
+            <!--解决mysql驱动升级到8.0后不生成指定数据库代码的问题-->
+            <property name="nullCatalogMeansCurrent" value="true"/>
+        </jdbcConnection>
+        <!-- 类型转换 -->
+        <javaTypeResolver>
+            <!--是否使用bigDecimal，默认false。
+                false，把JDBC DECIMAL 和 NUMERIC 类型解析为 Integer
+                true，把JDBC DECIMAL 和 NUMERIC 类型解析为java.math.BigDecimal-->
+            <property name="forceBigDecimals" value="false"/>
+            <!--是否使用转换日期，默认false
+                false，将所有 JDBC 的时间类型解析为 java.util.Date
+                true，将 JDBC 的时间类型按如下规则解析
+                    DATE                    -> java.time.LocalDate
+                    TIME                    -> java.time.LocalTime
+                    TIMESTAMP               -> java.time.LocalDateTime
+                    TIME_WITH_TIMEZONE      -> java.time.OffsetTime
+                    TIMESTAMP_WITH_TIMEZONE -> java.time.OffsetDateTime
+                -->
+            <property name="useJSR310Types" value="false"/>
+        </javaTypeResolver>
+        <!--指定生成model的路径-->
+        <javaModelGenerator targetPackage="com.ampserver.mbg.model" targetProject="AMPServerMP/src/main/java"/>
+        <!--指定生成mapper.xml的路径-->
+        <sqlMapGenerator targetPackage="com.ampserver.mbg.mapper" targetProject="AMPServerMP/src/main/resources"/>
+        <!--指定生成mapper接口的的路径-->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.ampserver.mbg.mapper"
+                             targetProject="AMPServerMP/src/main/java"/>
+        <!--生成全部表tableName设为%-->
+        <table tableName="%">
+            <property name="useActualColumnNames" value="true"/>
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+    </context>
+</generatorConfiguration>
