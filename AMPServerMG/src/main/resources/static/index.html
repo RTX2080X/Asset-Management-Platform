@@ -1,63 +1,75 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>管理平台</title>
     <link rel="stylesheet" href="layui/css/layui.css">
 </head>
+
 <body>
 
 <div class="layui-container layui-layout-admin">
     <div class="layui-header">
         <div class="layui-logo layui-hide-xs layui-bg-green">后台管理</div>
+        <ul class="layui-nav layui-layout-left">
+            <li class="layui-nav-item  layui-hide-xs">
+                <a href="javascript:">table-test-btn1</a>
+            </li>
+        </ul>
         <ul class="layui-nav layui-layout-right">
             <!-- 以下元素是权限管理通过再生成 -->
             <li class="layui-nav-item ">
-                <a href="javascript:;">
+                <a href="javascript:">
                     <img src="img/kita.png" class="layui-nav-img" alt="">
                     as
                 </a>
                 <dl class="layui-nav-child">
-                    <dd><a href="javascript:;">Your Profile</a></dd>
-                    <dd><a href="javascript:;">Settings</a></dd>
-                    <dd><a href="javascript:;">Sign out</a></dd>
+                    <dd><a href="javascript:">Your Profile</a></dd>
+                    <dd><a href="javascript:">Settings</a></dd>
+                    <dd><a href="javascript:">Sign out</a></dd>
                 </dl>
             </li>
-            <li class="layui-nav-item" lay-header-event="menuRight" lay-unselect>
-                <a href="javascript:;">
-                    <i class="layui-icon layui-icon-more-vertical"></i>
-                </a>
-            </li>
+            <!--            <li class="layui-nav-item" lay-header-event="menuRight" lay-unselect>-->
+            <!--                <a href="javascript:;">-->
+            <!--                    <i class="layui-icon layui-icon-more-vertical"></i>-->
+            <!--                </a>-->
+            <!--            </li>-->
         </ul>
 
     </div>
     <div class="layui-side layui-bg-black">
         <div class="layui-side-scroll">
             <!-- 以下元素权限通过在生成出来 -->
-            <ul class="layui-nav layui-nav-tree " lay-filter="test">
+            <ul class="layui-nav layui-nav-tree " lay-filter="navside" lay-shrink="all">
                 <li class="layui-nav-item layui-nav-itemed">
-                    <a href="javascript:;">资产管理</a>
+                    <a href="javascript:">资产管理</a>
                     <dl class="layui-nav-child">
-                        <dd><a href="javascript:;">资产类型</a></dd>
-                        <dd><a href="javascript:;">资产状态</a></dd>
-                        <dd><a href="javascript:;">资产操作记录</a></dd>
+                        <dd><a href="javascript:" lay-id="10">资产类型</a></dd>
+                        <dd><a href="javascript:" lay-id="11">资产状态</a></dd>
+                        <dd><a href="javascript:" lay-id="12">资产操作记录</a></dd>
                     </dl>
                 </li>
                 <li class="layui-nav-item">
-                    <a href="javascript:;">用户管理</a>
+                    <a href="javascript:">用户管理</a>
                     <dl class="layui-nav-child">
-                        <dd><a href="javascript:;">修改密码</a></dd>
+                        <dd lay-id="20"><a href="javascript:" lay-id="200">修改密码</a></dd>
                     </dl>
                 </li>
             </ul>
         </div>
     </div>
-    <div class="layui-body ">
-        <div style="padding: 15px;">
-            <blockquote class="layui-elem-quote layui-text">
-                主题内容
-            </blockquote>
+    <div class="layui-body">
+        <div class="layui-tab layui-tab-brief" lay-filter="handler-hash" lay-allowclose="true">
+            <ul class="layui-tab-title">
+                <li lay-id="000" class="layui-this">首页</li>
+            </ul>
+            <div class="layui-tab-content">
+                <div class="layui-tab-item layui-show">
+
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -65,14 +77,37 @@
 
 <script src="layui/layui.js"></script>
 <script>
-    layui.use(['element', 'layer', 'util'], function () {
-        var element = layui.element;
-        var layer = layui.layer;
-        var utils = layui.util;
-        var $ = layui.$;
-
-        utils.event('lay-header-event')
+    layui.use(function () {
+        const element = layui.element;
+        // const layer = layui.layer;
+        // const utils = layui.util;
+        const $ = layui.$;
+        const hashName = 'tabId';
+        const layId = location.hash.replace(new RegExp('^#' + hashName + '='), '')
+        element.on('nav(navside)', function (obj) {
+            // layer.msg(obj);
+            var cId = $(obj).attr('lay-id')
+            var exitObj = $('li[lay-id=' + cId + '0' + ']').length;
+            // 先判断非父tab，在判断是否存在
+            if (typeof cId != "undefined" && exitObj === 0) {
+                element.tabAdd('handler-hash', {
+                    title: obj.text(),
+                    content: obj.text() + '123123',
+                    id: $(obj).attr('lay-id') + '0'
+                })
+            } else if (typeof cId == "undefined") {
+                return;
+            }
+            element.tabChange('handler-hash', $(obj).attr('lay-id') + '0')
+        })
+        element.tabChange('handler-hash', layId)
+        element.on('tab(handler-hash)', function () {
+            location.hash = hashName + '=' + this.getAttribute('lay-id')
+        })
+        // ↓为动态加载后刷新侧nav
+        element.render('nav')
     })
 </script>
 </body>
+
 </html>
