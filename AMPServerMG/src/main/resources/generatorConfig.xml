@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2023. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+  ~ Morbi non lorem porttitor neque feugiat blandit. Ut vitae ipsum eget quam lacinia accumsan.
+  ~ Etiam sed turpis ac ipsum condimentum fringilla. Maecenas magna.
+  ~ Proin dapibus sapien vel ante. Aliquam erat volutpat. Pellentesque sagittis ligula eget metus.
+  ~ Vestibulum commodo. Ut rhoncus gravida arcu.
+  -->
+
 <!DOCTYPE generatorConfiguration
         PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
@@ -18,6 +26,8 @@
         <plugin type="org.mybatis.generator.plugins.ToStringPlugin"/>
         <!-- 多次生成Mapper.Xml不重复 -->
         <plugin type="org.mybatis.generator.plugins.UnmergeableXmlMappersPlugin"/>
+        <!-- 分页plugin -->
+<!--        <plugin type="org.mybatis.generator.plugins.RowBoundsPlugin"/>-->
         <!-- 格式化Java代码 -->
         <!--                <plugin type="org.mybatis.generator.api.dom.DefaultJavaFormatter"/>-->
         <!-- 格式化XML代码 -->
@@ -59,12 +69,12 @@
             <property name="useJSR310Types" value="false"/>
         </javaTypeResolver>
         <!--指定生成model的路径-->
-        <javaModelGenerator targetPackage="com.ampserver.mbg.model" targetProject="AMPServerMP/src/main/java"/>
+        <javaModelGenerator targetPackage="com.ampserver.mbg.model" targetProject="AMPServerMG/src/main/java"/>
         <!--指定生成mapper.xml的路径-->
-        <sqlMapGenerator targetPackage="com.ampserver.mbg.mapper" targetProject="AMPServerMP/src/main/resources"/>
+        <sqlMapGenerator targetPackage="com.ampserver.mbg.mapper" targetProject="AMPServerMG/src/main/resources"/>
         <!--指定生成mapper接口的的路径-->
         <javaClientGenerator type="XMLMAPPER" targetPackage="com.ampserver.mbg.mapper"
-                             targetProject="AMPServerMP/src/main/java"/>
+                             targetProject="AMPServerMG/src/main/java"/>
         <!--生成全部表tableName设为%-->
         <table tableName="%">
             <property name="useActualColumnNames" value="true"/>

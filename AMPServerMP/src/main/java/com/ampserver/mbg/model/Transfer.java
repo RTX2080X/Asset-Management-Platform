@@ -5,7 +5,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class Transfer implements Serializable {
-    @ApiModelProperty(value = "角色ID")
+    @ApiModelProperty(value = "用户ID")
     private Integer fk_usr_id;
 
     @ApiModelProperty(value = "角色ID")

@@ -1,7 +1,14 @@
+/*
+ * Copyright (c) 2023. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+ * Morbi non lorem porttitor neque feugiat blandit. Ut vitae ipsum eget quam lacinia accumsan.
+ * Etiam sed turpis ac ipsum condimentum fringilla. Maecenas magna.
+ * Proin dapibus sapien vel ante. Aliquam erat volutpat. Pellentesque sagittis ligula eget metus.
+ * Vestibulum commodo. Ut rhoncus gravida arcu.
+ */
+
 package com.ampserver.mbg.model;
 
 import io.swagger.annotations.ApiModelProperty;
-
 import java.io.Serializable;
 import java.util.Date;
 
@@ -19,7 +26,7 @@ public class Assets implements Serializable {
     private Integer pump_head;
 
     @ApiModelProperty(value = "流量(m3/h)")
-    private Integer flow;
+    private Float flow;
 
     @ApiModelProperty(value = "转速(r/min)")
     private Integer rpm;
@@ -31,7 +38,7 @@ public class Assets implements Serializable {
     private String spare_part;
 
     @ApiModelProperty(value = "功率(kw)")
-    private Integer powr;
+    private Float powr;
 
     @ApiModelProperty(value = "出厂日期")
     private Date factory_tim;
@@ -40,7 +47,7 @@ public class Assets implements Serializable {
     private String factory_num;
 
     @ApiModelProperty(value = "厂家")
-    private Integer factory_nam;
+    private String factory_nam;
 
     @ApiModelProperty(value = "泵型")
     private String category;
@@ -88,11 +95,11 @@ public class Assets implements Serializable {
         this.pump_head = pump_head;
     }
 
-    public Integer getFlow() {
+    public Float getFlow() {
         return flow;
     }
 
-    public void setFlow(Integer flow) {
+    public void setFlow(Float flow) {
         this.flow = flow;
     }
 
@@ -120,11 +127,11 @@ public class Assets implements Serializable {
         this.spare_part = spare_part;
     }
 
-    public Integer getPowr() {
+    public Float getPowr() {
         return powr;
     }
 
-    public void setPowr(Integer powr) {
+    public void setPowr(Float powr) {
         this.powr = powr;
     }
 
@@ -144,11 +151,11 @@ public class Assets implements Serializable {
         this.factory_num = factory_num;
     }
 
-    public Integer getFactory_nam() {
+    public String getFactory_nam() {
         return factory_nam;
     }
 
-    public void setFactory_nam(Integer factory_nam) {
+    public void setFactory_nam(String factory_nam) {
         this.factory_nam = factory_nam;
     }
 

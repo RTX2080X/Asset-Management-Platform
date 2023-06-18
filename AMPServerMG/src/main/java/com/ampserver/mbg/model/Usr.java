@@ -1,7 +1,14 @@
+/*
+ * Copyright (c) 2023. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+ * Morbi non lorem porttitor neque feugiat blandit. Ut vitae ipsum eget quam lacinia accumsan.
+ * Etiam sed turpis ac ipsum condimentum fringilla. Maecenas magna.
+ * Proin dapibus sapien vel ante. Aliquam erat volutpat. Pellentesque sagittis ligula eget metus.
+ * Vestibulum commodo. Ut rhoncus gravida arcu.
+ */
+
 package com.ampserver.mbg.model;
 
 import io.swagger.annotations.ApiModelProperty;
-
 import java.io.Serializable;
 import java.util.Date;
 
@@ -14,6 +21,9 @@ public class Usr implements Serializable {
 
     @ApiModelProperty(value = "密码")
     private String pwd;
+
+    @ApiModelProperty(value = "备注")
+    private String remark;
 
     @ApiModelProperty(value = "注册时间")
     private Date register_tim;
@@ -47,6 +57,14 @@ public class Usr implements Serializable {
         this.pwd = pwd;
     }
 
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
+    }
+
     public Date getRegister_tim() {
         return register_tim;
     }
@@ -72,6 +90,7 @@ public class Usr implements Serializable {
         sb.append(", pk_id=").append(pk_id);
         sb.append(", user_name=").append(user_name);
         sb.append(", pwd=").append(pwd);
+        sb.append(", remark=").append(remark);
         sb.append(", register_tim=").append(register_tim);
         sb.append(", correction_tim=").append(correction_tim);
         sb.append(", serialVersionUID=").append(serialVersionUID);

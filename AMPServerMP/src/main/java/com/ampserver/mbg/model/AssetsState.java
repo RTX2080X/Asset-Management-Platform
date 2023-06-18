@@ -15,7 +15,7 @@ public class AssetsState implements Serializable {
     private Integer current_state;
 
     @ApiModelProperty(value = "框架")
-    private String locationn;
+    private String location;
 
     @ApiModelProperty(value = "登机时间")
     private Date create_tim;
@@ -49,12 +49,12 @@ public class AssetsState implements Serializable {
         this.current_state = current_state;
     }
 
-    public String getLocationn() {
-        return locationn;
+    public String getLocation() {
+        return location;
     }
 
-    public void setLocationn(String locationn) {
-        this.locationn = locationn;
+    public void setLocation(String location) {
+        this.location = location;
     }
 
     public Date getCreate_tim() {
@@ -82,7 +82,7 @@ public class AssetsState implements Serializable {
         sb.append(", pk_id=").append(pk_id);
         sb.append(", fk_ast_id=").append(fk_ast_id);
         sb.append(", current_state=").append(current_state);
-        sb.append(", locationn=").append(locationn);
+        sb.append(", location=").append(location);
         sb.append(", create_tim=").append(create_tim);
         sb.append(", correction_tim=").append(correction_tim);
         sb.append(", serialVersionUID=").append(serialVersionUID);

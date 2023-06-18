@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/ampdatabase?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://localhost:3306/amp_database?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
     username: root
     password: qwer1234
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -9,6 +9,10 @@ mybatis:
   mapper-locations:
     - classpath:mapper/*.xml
     - classpath*:com/**/mapper/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+
 server:
   servlet:
     encoding:
@@ -17,3 +21,10 @@ server:
       enabled: true
   tomcat:
     uri-encoding: utf-8
+
+pagehelper:
+  page-size-zero: true
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql

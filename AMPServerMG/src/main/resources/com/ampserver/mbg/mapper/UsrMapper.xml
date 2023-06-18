@@ -1,10 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2023. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+  ~ Morbi non lorem porttitor neque feugiat blandit. Ut vitae ipsum eget quam lacinia accumsan.
+  ~ Etiam sed turpis ac ipsum condimentum fringilla. Maecenas magna.
+  ~ Proin dapibus sapien vel ante. Aliquam erat volutpat. Pellentesque sagittis ligula eget metus.
+  ~ Vestibulum commodo. Ut rhoncus gravida arcu.
+  -->
+
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ampserver.mbg.mapper.UsrMapper">
   <resultMap id="BaseResultMap" type="com.ampserver.mbg.model.Usr">
     <id column="pk_id" jdbcType="INTEGER" property="pk_id" />
     <result column="user_name" jdbcType="VARCHAR" property="user_name" />
     <result column="pwd" jdbcType="VARCHAR" property="pwd" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
     <result column="register_tim" jdbcType="TIMESTAMP" property="register_tim" />
     <result column="correction_tim" jdbcType="TIMESTAMP" property="correction_tim" />
   </resultMap>
@@ -67,7 +76,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    pk_id, user_name, pwd, register_tim, correction_tim
+    pk_id, user_name, pwd, remark, register_tim, correction_tim
   </sql>
   <select id="selectByExample" parameterType="com.ampserver.mbg.model.UsrExample" resultMap="BaseResultMap">
     select
@@ -101,9 +110,11 @@
   </delete>
   <insert id="insert" parameterType="com.ampserver.mbg.model.Usr">
     insert into usr (pk_id, user_name, pwd, 
-      register_tim, correction_tim)
+      remark, register_tim, correction_tim
+      )
     values (#{pk_id,jdbcType=INTEGER}, #{user_name,jdbcType=VARCHAR}, #{pwd,jdbcType=VARCHAR}, 
-      #{register_tim,jdbcType=TIMESTAMP}, #{correction_tim,jdbcType=TIMESTAMP})
+      #{remark,jdbcType=VARCHAR}, #{register_tim,jdbcType=TIMESTAMP}, #{correction_tim,jdbcType=TIMESTAMP}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.ampserver.mbg.model.Usr">
     insert into usr
@@ -116,6 +127,9 @@
       </if>
       <if test="pwd != null">
         pwd,
+      </if>
+      <if test="remark != null">
+        remark,
       </if>
       <if test="register_tim != null">
         register_tim,
@@ -133,6 +147,9 @@
       </if>
       <if test="pwd != null">
         #{pwd,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
       </if>
       <if test="register_tim != null">
         #{register_tim,jdbcType=TIMESTAMP},
@@ -160,6 +177,9 @@
       <if test="record.pwd != null">
         pwd = #{record.pwd,jdbcType=VARCHAR},
       </if>
+      <if test="record.remark != null">
+        remark = #{record.remark,jdbcType=VARCHAR},
+      </if>
       <if test="record.register_tim != null">
         register_tim = #{record.register_tim,jdbcType=TIMESTAMP},
       </if>
@@ -176,6 +196,7 @@
     set pk_id = #{record.pk_id,jdbcType=INTEGER},
       user_name = #{record.user_name,jdbcType=VARCHAR},
       pwd = #{record.pwd,jdbcType=VARCHAR},
+      remark = #{record.remark,jdbcType=VARCHAR},
       register_tim = #{record.register_tim,jdbcType=TIMESTAMP},
       correction_tim = #{record.correction_tim,jdbcType=TIMESTAMP}
     <if test="_parameter != null">
@@ -191,6 +212,9 @@
       <if test="pwd != null">
         pwd = #{pwd,jdbcType=VARCHAR},
       </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
       <if test="register_tim != null">
         register_tim = #{register_tim,jdbcType=TIMESTAMP},
       </if>
@@ -204,6 +228,7 @@
     update usr
     set user_name = #{user_name,jdbcType=VARCHAR},
       pwd = #{pwd,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
       register_tim = #{register_tim,jdbcType=TIMESTAMP},
       correction_tim = #{correction_tim,jdbcType=TIMESTAMP}
     where pk_id = #{pk_id,jdbcType=INTEGER}

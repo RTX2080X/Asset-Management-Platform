@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2023. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+  ~ Morbi non lorem porttitor neque feugiat blandit. Ut vitae ipsum eget quam lacinia accumsan.
+  ~ Etiam sed turpis ac ipsum condimentum fringilla. Maecenas magna.
+  ~ Proin dapibus sapien vel ante. Aliquam erat volutpat. Pellentesque sagittis ligula eget metus.
+  ~ Vestibulum commodo. Ut rhoncus gravida arcu.
+  -->
+
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ampserver.mbg.mapper.AssetsStateMapper">
   <resultMap id="BaseResultMap" type="com.ampserver.mbg.model.AssetsState">
     <id column="pk_id" jdbcType="INTEGER" property="pk_id" />
     <result column="fk_ast_id" jdbcType="INTEGER" property="fk_ast_id" />
     <result column="current_state" jdbcType="INTEGER" property="current_state" />
-    <result column="locationn" jdbcType="VARCHAR" property="locationn" />
+    <result column="location" jdbcType="VARCHAR" property="location" />
     <result column="create_tim" jdbcType="TIMESTAMP" property="create_tim" />
     <result column="correction_tim" jdbcType="TIMESTAMP" property="correction_tim" />
   </resultMap>
@@ -68,7 +76,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    pk_id, fk_ast_id, current_state, locationn, create_tim, correction_tim
+    pk_id, fk_ast_id, current_state, location, create_tim, correction_tim
   </sql>
   <select id="selectByExample" parameterType="com.ampserver.mbg.model.AssetsStateExample" resultMap="BaseResultMap">
     select
@@ -102,10 +110,10 @@
   </delete>
   <insert id="insert" parameterType="com.ampserver.mbg.model.AssetsState">
     insert into assets_state (pk_id, fk_ast_id, current_state, 
-      locationn, create_tim, correction_tim
+      location, create_tim, correction_tim
       )
     values (#{pk_id,jdbcType=INTEGER}, #{fk_ast_id,jdbcType=INTEGER}, #{current_state,jdbcType=INTEGER}, 
-      #{locationn,jdbcType=VARCHAR}, #{create_tim,jdbcType=TIMESTAMP}, #{correction_tim,jdbcType=TIMESTAMP}
+      #{location,jdbcType=VARCHAR}, #{create_tim,jdbcType=TIMESTAMP}, #{correction_tim,jdbcType=TIMESTAMP}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.ampserver.mbg.model.AssetsState">
@@ -120,8 +128,8 @@
       <if test="current_state != null">
         current_state,
       </if>
-      <if test="locationn != null">
-        locationn,
+      <if test="location != null">
+        location,
       </if>
       <if test="create_tim != null">
         create_tim,
@@ -140,8 +148,8 @@
       <if test="current_state != null">
         #{current_state,jdbcType=INTEGER},
       </if>
-      <if test="locationn != null">
-        #{locationn,jdbcType=VARCHAR},
+      <if test="location != null">
+        #{location,jdbcType=VARCHAR},
       </if>
       <if test="create_tim != null">
         #{create_tim,jdbcType=TIMESTAMP},
@@ -169,8 +177,8 @@
       <if test="record.current_state != null">
         current_state = #{record.current_state,jdbcType=INTEGER},
       </if>
-      <if test="record.locationn != null">
-        locationn = #{record.locationn,jdbcType=VARCHAR},
+      <if test="record.location != null">
+        location = #{record.location,jdbcType=VARCHAR},
       </if>
       <if test="record.create_tim != null">
         create_tim = #{record.create_tim,jdbcType=TIMESTAMP},
@@ -188,7 +196,7 @@
     set pk_id = #{record.pk_id,jdbcType=INTEGER},
       fk_ast_id = #{record.fk_ast_id,jdbcType=INTEGER},
       current_state = #{record.current_state,jdbcType=INTEGER},
-      locationn = #{record.locationn,jdbcType=VARCHAR},
+      location = #{record.location,jdbcType=VARCHAR},
       create_tim = #{record.create_tim,jdbcType=TIMESTAMP},
       correction_tim = #{record.correction_tim,jdbcType=TIMESTAMP}
     <if test="_parameter != null">
@@ -204,8 +212,8 @@
       <if test="current_state != null">
         current_state = #{current_state,jdbcType=INTEGER},
       </if>
-      <if test="locationn != null">
-        locationn = #{locationn,jdbcType=VARCHAR},
+      <if test="location != null">
+        location = #{location,jdbcType=VARCHAR},
       </if>
       <if test="create_tim != null">
         create_tim = #{create_tim,jdbcType=TIMESTAMP},
@@ -220,7 +228,7 @@
     update assets_state
     set fk_ast_id = #{fk_ast_id,jdbcType=INTEGER},
       current_state = #{current_state,jdbcType=INTEGER},
-      locationn = #{locationn,jdbcType=VARCHAR},
+      location = #{location,jdbcType=VARCHAR},
       create_tim = #{create_tim,jdbcType=TIMESTAMP},
       correction_tim = #{correction_tim,jdbcType=TIMESTAMP}
     where pk_id = #{pk_id,jdbcType=INTEGER}

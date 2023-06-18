@@ -1,3 +1,11 @@
+/*
+ * Copyright (c) 2023. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+ * Morbi non lorem porttitor neque feugiat blandit. Ut vitae ipsum eget quam lacinia accumsan.
+ * Etiam sed turpis ac ipsum condimentum fringilla. Maecenas magna.
+ * Proin dapibus sapien vel ante. Aliquam erat volutpat. Pellentesque sagittis ligula eget metus.
+ * Vestibulum commodo. Ut rhoncus gravida arcu.
+ */
+
 package com.ampserver.mbg.model;
 
 import java.util.ArrayList;
@@ -285,73 +293,73 @@ public class AssetsStateExample {
             return (Criteria) this;
         }
 
-        public Criteria andLocationnIsNull() {
-            addCriterion("locationn is null");
+        public Criteria andLocationIsNull() {
+            addCriterion("location is null");
             return (Criteria) this;
         }
 
-        public Criteria andLocationnIsNotNull() {
-            addCriterion("locationn is not null");
+        public Criteria andLocationIsNotNull() {
+            addCriterion("location is not null");
             return (Criteria) this;
         }
 
-        public Criteria andLocationnEqualTo(String value) {
-            addCriterion("locationn =", value, "locationn");
+        public Criteria andLocationEqualTo(String value) {
+            addCriterion("location =", value, "location");
             return (Criteria) this;
         }
 
-        public Criteria andLocationnNotEqualTo(String value) {
-            addCriterion("locationn <>", value, "locationn");
+        public Criteria andLocationNotEqualTo(String value) {
+            addCriterion("location <>", value, "location");
             return (Criteria) this;
         }
 
-        public Criteria andLocationnGreaterThan(String value) {
-            addCriterion("locationn >", value, "locationn");
+        public Criteria andLocationGreaterThan(String value) {
+            addCriterion("location >", value, "location");
             return (Criteria) this;
         }
 
-        public Criteria andLocationnGreaterThanOrEqualTo(String value) {
-            addCriterion("locationn >=", value, "locationn");
+        public Criteria andLocationGreaterThanOrEqualTo(String value) {
+            addCriterion("location >=", value, "location");
             return (Criteria) this;
         }
 
-        public Criteria andLocationnLessThan(String value) {
-            addCriterion("locationn <", value, "locationn");
+        public Criteria andLocationLessThan(String value) {
+            addCriterion("location <", value, "location");
             return (Criteria) this;
         }
 
-        public Criteria andLocationnLessThanOrEqualTo(String value) {
-            addCriterion("locationn <=", value, "locationn");
+        public Criteria andLocationLessThanOrEqualTo(String value) {
+            addCriterion("location <=", value, "location");
             return (Criteria) this;
         }
 
-        public Criteria andLocationnLike(String value) {
-            addCriterion("locationn like", value, "locationn");
+        public Criteria andLocationLike(String value) {
+            addCriterion("location like", value, "location");
             return (Criteria) this;
         }
 
-        public Criteria andLocationnNotLike(String value) {
-            addCriterion("locationn not like", value, "locationn");
+        public Criteria andLocationNotLike(String value) {
+            addCriterion("location not like", value, "location");
             return (Criteria) this;
         }
 
-        public Criteria andLocationnIn(List<String> values) {
-            addCriterion("locationn in", values, "locationn");
+        public Criteria andLocationIn(List<String> values) {
+            addCriterion("location in", values, "location");
             return (Criteria) this;
         }
 
-        public Criteria andLocationnNotIn(List<String> values) {
-            addCriterion("locationn not in", values, "locationn");
+        public Criteria andLocationNotIn(List<String> values) {
+            addCriterion("location not in", values, "location");
             return (Criteria) this;
         }
 
-        public Criteria andLocationnBetween(String value1, String value2) {
-            addCriterion("locationn between", value1, value2, "locationn");
+        public Criteria andLocationBetween(String value1, String value2) {
+            addCriterion("location between", value1, value2, "location");
             return (Criteria) this;
         }
 
-        public Criteria andLocationnNotBetween(String value1, String value2) {
-            addCriterion("locationn not between", value1, value2, "locationn");
+        public Criteria andLocationNotBetween(String value1, String value2) {
+            addCriterion("location not between", value1, value2, "location");
             return (Criteria) this;
         }
 

@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2023. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+  ~ Morbi non lorem porttitor neque feugiat blandit. Ut vitae ipsum eget quam lacinia accumsan.
+  ~ Etiam sed turpis ac ipsum condimentum fringilla. Maecenas magna.
+  ~ Proin dapibus sapien vel ante. Aliquam erat volutpat. Pellentesque sagittis ligula eget metus.
+  ~ Vestibulum commodo. Ut rhoncus gravida arcu.
+  -->
+
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ampserver.mbg.mapper.AssetsMapper">
   <resultMap id="BaseResultMap" type="com.ampserver.mbg.model.Assets">
@@ -6,14 +14,14 @@
     <result column="location" jdbcType="VARCHAR" property="location" />
     <result column="tpe" jdbcType="VARCHAR" property="tpe" />
     <result column="pump_head" jdbcType="INTEGER" property="pump_head" />
-    <result column="flow" jdbcType="INTEGER" property="flow" />
+    <result column="flow" jdbcType="REAL" property="flow" />
     <result column="rpm" jdbcType="INTEGER" property="rpm" />
     <result column="quality" jdbcType="INTEGER" property="quality" />
     <result column="spare_part" jdbcType="VARCHAR" property="spare_part" />
-    <result column="powr" jdbcType="INTEGER" property="powr" />
+    <result column="powr" jdbcType="REAL" property="powr" />
     <result column="factory_tim" jdbcType="TIMESTAMP" property="factory_tim" />
     <result column="factory_num" jdbcType="VARCHAR" property="factory_num" />
-    <result column="factory_nam" jdbcType="INTEGER" property="factory_nam" />
+    <result column="factory_nam" jdbcType="VARCHAR" property="factory_nam" />
     <result column="category" jdbcType="VARCHAR" property="category" />
     <result column="remake" jdbcType="VARCHAR" property="remake" />
     <result column="create_tim" jdbcType="TIMESTAMP" property="create_tim" />
@@ -119,9 +127,9 @@
       category, remake, create_tim, 
       correction_tim)
     values (#{pk_Id,jdbcType=INTEGER}, #{location,jdbcType=VARCHAR}, #{tpe,jdbcType=VARCHAR}, 
-      #{pump_head,jdbcType=INTEGER}, #{flow,jdbcType=INTEGER}, #{rpm,jdbcType=INTEGER}, 
-      #{quality,jdbcType=INTEGER}, #{spare_part,jdbcType=VARCHAR}, #{powr,jdbcType=INTEGER}, 
-      #{factory_tim,jdbcType=TIMESTAMP}, #{factory_num,jdbcType=VARCHAR}, #{factory_nam,jdbcType=INTEGER}, 
+      #{pump_head,jdbcType=INTEGER}, #{flow,jdbcType=REAL}, #{rpm,jdbcType=INTEGER}, 
+      #{quality,jdbcType=INTEGER}, #{spare_part,jdbcType=VARCHAR}, #{powr,jdbcType=REAL}, 
+      #{factory_tim,jdbcType=TIMESTAMP}, #{factory_num,jdbcType=VARCHAR}, #{factory_nam,jdbcType=VARCHAR}, 
       #{category,jdbcType=VARCHAR}, #{remake,jdbcType=VARCHAR}, #{create_tim,jdbcType=TIMESTAMP}, 
       #{correction_tim,jdbcType=TIMESTAMP})
   </insert>
@@ -191,7 +199,7 @@
         #{pump_head,jdbcType=INTEGER},
       </if>
       <if test="flow != null">
-        #{flow,jdbcType=INTEGER},
+        #{flow,jdbcType=REAL},
       </if>
       <if test="rpm != null">
         #{rpm,jdbcType=INTEGER},
@@ -203,7 +211,7 @@
         #{spare_part,jdbcType=VARCHAR},
       </if>
       <if test="powr != null">
-        #{powr,jdbcType=INTEGER},
+        #{powr,jdbcType=REAL},
       </if>
       <if test="factory_tim != null">
         #{factory_tim,jdbcType=TIMESTAMP},
@@ -212,7 +220,7 @@
         #{factory_num,jdbcType=VARCHAR},
       </if>
       <if test="factory_nam != null">
-        #{factory_nam,jdbcType=INTEGER},
+        #{factory_nam,jdbcType=VARCHAR},
       </if>
       <if test="category != null">
         #{category,jdbcType=VARCHAR},
@@ -250,7 +258,7 @@
         pump_head = #{record.pump_head,jdbcType=INTEGER},
       </if>
       <if test="record.flow != null">
-        flow = #{record.flow,jdbcType=INTEGER},
+        flow = #{record.flow,jdbcType=REAL},
       </if>
       <if test="record.rpm != null">
         rpm = #{record.rpm,jdbcType=INTEGER},
@@ -262,7 +270,7 @@
         spare_part = #{record.spare_part,jdbcType=VARCHAR},
       </if>
       <if test="record.powr != null">
-        powr = #{record.powr,jdbcType=INTEGER},
+        powr = #{record.powr,jdbcType=REAL},
       </if>
       <if test="record.factory_tim != null">
         factory_tim = #{record.factory_tim,jdbcType=TIMESTAMP},
@@ -271,7 +279,7 @@
         factory_num = #{record.factory_num,jdbcType=VARCHAR},
       </if>
       <if test="record.factory_nam != null">
-        factory_nam = #{record.factory_nam,jdbcType=INTEGER},
+        factory_nam = #{record.factory_nam,jdbcType=VARCHAR},
       </if>
       <if test="record.category != null">
         category = #{record.category,jdbcType=VARCHAR},
@@ -296,14 +304,14 @@
       location = #{record.location,jdbcType=VARCHAR},
       tpe = #{record.tpe,jdbcType=VARCHAR},
       pump_head = #{record.pump_head,jdbcType=INTEGER},
-      flow = #{record.flow,jdbcType=INTEGER},
+      flow = #{record.flow,jdbcType=REAL},
       rpm = #{record.rpm,jdbcType=INTEGER},
       quality = #{record.quality,jdbcType=INTEGER},
       spare_part = #{record.spare_part,jdbcType=VARCHAR},
-      powr = #{record.powr,jdbcType=INTEGER},
+      powr = #{record.powr,jdbcType=REAL},
       factory_tim = #{record.factory_tim,jdbcType=TIMESTAMP},
       factory_num = #{record.factory_num,jdbcType=VARCHAR},
-      factory_nam = #{record.factory_nam,jdbcType=INTEGER},
+      factory_nam = #{record.factory_nam,jdbcType=VARCHAR},
       category = #{record.category,jdbcType=VARCHAR},
       remake = #{record.remake,jdbcType=VARCHAR},
       create_tim = #{record.create_tim,jdbcType=TIMESTAMP},
@@ -325,7 +333,7 @@
         pump_head = #{pump_head,jdbcType=INTEGER},
       </if>
       <if test="flow != null">
-        flow = #{flow,jdbcType=INTEGER},
+        flow = #{flow,jdbcType=REAL},
       </if>
       <if test="rpm != null">
         rpm = #{rpm,jdbcType=INTEGER},
@@ -337,7 +345,7 @@
         spare_part = #{spare_part,jdbcType=VARCHAR},
       </if>
       <if test="powr != null">
-        powr = #{powr,jdbcType=INTEGER},
+        powr = #{powr,jdbcType=REAL},
       </if>
       <if test="factory_tim != null">
         factory_tim = #{factory_tim,jdbcType=TIMESTAMP},
@@ -346,7 +354,7 @@
         factory_num = #{factory_num,jdbcType=VARCHAR},
       </if>
       <if test="factory_nam != null">
-        factory_nam = #{factory_nam,jdbcType=INTEGER},
+        factory_nam = #{factory_nam,jdbcType=VARCHAR},
       </if>
       <if test="category != null">
         category = #{category,jdbcType=VARCHAR},
@@ -368,14 +376,14 @@
     set location = #{location,jdbcType=VARCHAR},
       tpe = #{tpe,jdbcType=VARCHAR},
       pump_head = #{pump_head,jdbcType=INTEGER},
-      flow = #{flow,jdbcType=INTEGER},
+      flow = #{flow,jdbcType=REAL},
       rpm = #{rpm,jdbcType=INTEGER},
       quality = #{quality,jdbcType=INTEGER},
       spare_part = #{spare_part,jdbcType=VARCHAR},
-      powr = #{powr,jdbcType=INTEGER},
+      powr = #{powr,jdbcType=REAL},
       factory_tim = #{factory_tim,jdbcType=TIMESTAMP},
       factory_num = #{factory_num,jdbcType=VARCHAR},
-      factory_nam = #{factory_nam,jdbcType=INTEGER},
+      factory_nam = #{factory_nam,jdbcType=VARCHAR},
       category = #{category,jdbcType=VARCHAR},
       remake = #{remake,jdbcType=VARCHAR},
       create_tim = #{create_tim,jdbcType=TIMESTAMP},

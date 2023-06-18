@@ -5,8 +5,10 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class Authorization implements Serializable {
+    @ApiModelProperty(value = "角色ID")
     private Integer fk_rol_id;
 
+    @ApiModelProperty(value = "权限ID")
     private Integer fk_per_id;
 
     @ApiModelProperty(value = "授权时间")

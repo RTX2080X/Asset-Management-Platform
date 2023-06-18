@@ -8,17 +8,33 @@
 
 package com.ampserver.controller;
 
+import com.ampserver.mbg.model.Usr;
+import com.ampserver.service.UsrService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.Resource;
+import java.util.List;
+import java.util.Map;
+
 @RestController
 public class loginController {
+    @Resource
+    private UsrService usrService;
+//
+//    @RequestMapping(value = "/test", method = RequestMethod.GET)
+//    @ResponseBody
+//    public Map Tsetreuqest() {
+//        return usrService.findAll();
+//    }
+//
+//    @ResponseBody
+//    @RequestMapping(value = "/t", method = RequestMethod.GET)
+//    public List<Usr> TestRequest2() {
+//        return usrService.findAll2();
+//    }
 
-    @RequestMapping(value = "/test", method = RequestMethod.POST)
-    @ResponseBody
-    public static String Tsetreuqest() {
-        return null;
-    }
 }

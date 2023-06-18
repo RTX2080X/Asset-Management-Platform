@@ -1,3 +1,11 @@
+/*
+ * Copyright (c) 2023. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+ * Morbi non lorem porttitor neque feugiat blandit. Ut vitae ipsum eget quam lacinia accumsan.
+ * Etiam sed turpis ac ipsum condimentum fringilla. Maecenas magna.
+ * Proin dapibus sapien vel ante. Aliquam erat volutpat. Pellentesque sagittis ligula eget metus.
+ * Vestibulum commodo. Ut rhoncus gravida arcu.
+ */
+
 package com.ampserver.mbg.model;
 
 import java.util.ArrayList;
@@ -375,52 +383,52 @@ public class AssetsExample {
             return (Criteria) this;
         }
 
-        public Criteria andFlowEqualTo(Integer value) {
+        public Criteria andFlowEqualTo(Float value) {
             addCriterion("flow =", value, "flow");
             return (Criteria) this;
         }
 
-        public Criteria andFlowNotEqualTo(Integer value) {
+        public Criteria andFlowNotEqualTo(Float value) {
             addCriterion("flow <>", value, "flow");
             return (Criteria) this;
         }
 
-        public Criteria andFlowGreaterThan(Integer value) {
+        public Criteria andFlowGreaterThan(Float value) {
             addCriterion("flow >", value, "flow");
             return (Criteria) this;
         }
 
-        public Criteria andFlowGreaterThanOrEqualTo(Integer value) {
+        public Criteria andFlowGreaterThanOrEqualTo(Float value) {
             addCriterion("flow >=", value, "flow");
             return (Criteria) this;
         }
 
-        public Criteria andFlowLessThan(Integer value) {
+        public Criteria andFlowLessThan(Float value) {
             addCriterion("flow <", value, "flow");
             return (Criteria) this;
         }
 
-        public Criteria andFlowLessThanOrEqualTo(Integer value) {
+        public Criteria andFlowLessThanOrEqualTo(Float value) {
             addCriterion("flow <=", value, "flow");
             return (Criteria) this;
         }
 
-        public Criteria andFlowIn(List<Integer> values) {
+        public Criteria andFlowIn(List<Float> values) {
             addCriterion("flow in", values, "flow");
             return (Criteria) this;
         }
 
-        public Criteria andFlowNotIn(List<Integer> values) {
+        public Criteria andFlowNotIn(List<Float> values) {
             addCriterion("flow not in", values, "flow");
             return (Criteria) this;
         }
 
-        public Criteria andFlowBetween(Integer value1, Integer value2) {
+        public Criteria andFlowBetween(Float value1, Float value2) {
             addCriterion("flow between", value1, value2, "flow");
             return (Criteria) this;
         }
 
-        public Criteria andFlowNotBetween(Integer value1, Integer value2) {
+        public Criteria andFlowNotBetween(Float value1, Float value2) {
             addCriterion("flow not between", value1, value2, "flow");
             return (Criteria) this;
         }
@@ -625,52 +633,52 @@ public class AssetsExample {
             return (Criteria) this;
         }
 
-        public Criteria andPowrEqualTo(Integer value) {
+        public Criteria andPowrEqualTo(Float value) {
             addCriterion("powr =", value, "powr");
             return (Criteria) this;
         }
 
-        public Criteria andPowrNotEqualTo(Integer value) {
+        public Criteria andPowrNotEqualTo(Float value) {
             addCriterion("powr <>", value, "powr");
             return (Criteria) this;
         }
 
-        public Criteria andPowrGreaterThan(Integer value) {
+        public Criteria andPowrGreaterThan(Float value) {
             addCriterion("powr >", value, "powr");
             return (Criteria) this;
         }
 
-        public Criteria andPowrGreaterThanOrEqualTo(Integer value) {
+        public Criteria andPowrGreaterThanOrEqualTo(Float value) {
             addCriterion("powr >=", value, "powr");
             return (Criteria) this;
         }
 
-        public Criteria andPowrLessThan(Integer value) {
+        public Criteria andPowrLessThan(Float value) {
             addCriterion("powr <", value, "powr");
             return (Criteria) this;
         }
 
-        public Criteria andPowrLessThanOrEqualTo(Integer value) {
+        public Criteria andPowrLessThanOrEqualTo(Float value) {
             addCriterion("powr <=", value, "powr");
             return (Criteria) this;
         }
 
-        public Criteria andPowrIn(List<Integer> values) {
+        public Criteria andPowrIn(List<Float> values) {
             addCriterion("powr in", values, "powr");
             return (Criteria) this;
         }
 
-        public Criteria andPowrNotIn(List<Integer> values) {
+        public Criteria andPowrNotIn(List<Float> values) {
             addCriterion("powr not in", values, "powr");
             return (Criteria) this;
         }
 
-        public Criteria andPowrBetween(Integer value1, Integer value2) {
+        public Criteria andPowrBetween(Float value1, Float value2) {
             addCriterion("powr between", value1, value2, "powr");
             return (Criteria) this;
         }
 
-        public Criteria andPowrNotBetween(Integer value1, Integer value2) {
+        public Criteria andPowrNotBetween(Float value1, Float value2) {
             addCriterion("powr not between", value1, value2, "powr");
             return (Criteria) this;
         }
@@ -815,52 +823,62 @@ public class AssetsExample {
             return (Criteria) this;
         }
 
-        public Criteria andFactory_namEqualTo(Integer value) {
+        public Criteria andFactory_namEqualTo(String value) {
             addCriterion("factory_nam =", value, "factory_nam");
             return (Criteria) this;
         }
 
-        public Criteria andFactory_namNotEqualTo(Integer value) {
+        public Criteria andFactory_namNotEqualTo(String value) {
             addCriterion("factory_nam <>", value, "factory_nam");
             return (Criteria) this;
         }
 
-        public Criteria andFactory_namGreaterThan(Integer value) {
+        public Criteria andFactory_namGreaterThan(String value) {
             addCriterion("factory_nam >", value, "factory_nam");
             return (Criteria) this;
         }
 
-        public Criteria andFactory_namGreaterThanOrEqualTo(Integer value) {
+        public Criteria andFactory_namGreaterThanOrEqualTo(String value) {
             addCriterion("factory_nam >=", value, "factory_nam");
             return (Criteria) this;
         }
 
-        public Criteria andFactory_namLessThan(Integer value) {
+        public Criteria andFactory_namLessThan(String value) {
             addCriterion("factory_nam <", value, "factory_nam");
             return (Criteria) this;
         }
 
-        public Criteria andFactory_namLessThanOrEqualTo(Integer value) {
+        public Criteria andFactory_namLessThanOrEqualTo(String value) {
             addCriterion("factory_nam <=", value, "factory_nam");
             return (Criteria) this;
         }
 
-        public Criteria andFactory_namIn(List<Integer> values) {
+        public Criteria andFactory_namLike(String value) {
+            addCriterion("factory_nam like", value, "factory_nam");
+            return (Criteria) this;
+        }
+
+        public Criteria andFactory_namNotLike(String value) {
+            addCriterion("factory_nam not like", value, "factory_nam");
+            return (Criteria) this;
+        }
+
+        public Criteria andFactory_namIn(List<String> values) {
             addCriterion("factory_nam in", values, "factory_nam");
             return (Criteria) this;
         }
 
-        public Criteria andFactory_namNotIn(List<Integer> values) {
+        public Criteria andFactory_namNotIn(List<String> values) {
             addCriterion("factory_nam not in", values, "factory_nam");
             return (Criteria) this;
         }
 
-        public Criteria andFactory_namBetween(Integer value1, Integer value2) {
+        public Criteria andFactory_namBetween(String value1, String value2) {
             addCriterion("factory_nam between", value1, value2, "factory_nam");
             return (Criteria) this;
         }
 
-        public Criteria andFactory_namNotBetween(Integer value1, Integer value2) {
+        public Criteria andFactory_namNotBetween(String value1, String value2) {
             addCriterion("factory_nam not between", value1, value2, "factory_nam");
             return (Criteria) this;
         }
