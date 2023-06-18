@@ -2,7 +2,9 @@ package com.ampserver.mbg.mapper;
 
 import com.ampserver.mbg.model.Usr;
 import com.ampserver.mbg.model.UsrExample;
+
 import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface UsrMapper {

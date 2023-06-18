@@ -29,6 +29,10 @@ class AmpServerMpApplicationTests {
     @Autowired
     private Environment environment;
 
+    protected static List<String> getTables(String tables) {
+        return "all".equals(tables) ? Collections.emptyList() : Arrays.asList(tables.split(","));
+    }
+
     @Test
     void contextLoads() {
         // 参数说明：https://baomidou.com/pages/981406/#数据库配置-datasourceconfig
@@ -76,9 +80,5 @@ class AmpServerMpApplicationTests {
                         .enableMapperAnnotation()
                         .formatXmlFileName("%sMapper")
                 ).execute();
-    }
-
-    protected static List<String> getTables(String tables) {
-        return "all".equals(tables) ? Collections.emptyList() : Arrays.asList(tables.split(","));
     }
 }

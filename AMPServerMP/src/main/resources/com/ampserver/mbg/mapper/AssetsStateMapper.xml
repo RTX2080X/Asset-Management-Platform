@@ -9,228 +9,229 @@
 
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ampserver.mbg.mapper.AssetsStateMapper">
-  <resultMap id="BaseResultMap" type="com.ampserver.mbg.model.AssetsState">
-    <id column="pk_id" jdbcType="INTEGER" property="pk_id" />
-    <result column="fk_ast_id" jdbcType="INTEGER" property="fk_ast_id" />
-    <result column="current_state" jdbcType="INTEGER" property="current_state" />
-    <result column="location" jdbcType="VARCHAR" property="location" />
-    <result column="create_tim" jdbcType="TIMESTAMP" property="create_tim" />
-    <result column="correction_tim" jdbcType="TIMESTAMP" property="correction_tim" />
-  </resultMap>
-  <sql id="Example_Where_Clause">
-    <where>
-      <foreach collection="oredCriteria" item="criteria" separator="or">
-        <if test="criteria.valid">
-          <trim prefix="(" prefixOverrides="and" suffix=")">
-            <foreach collection="criteria.criteria" item="criterion">
-              <choose>
-                <when test="criterion.noValue">
-                  and ${criterion.condition}
-                </when>
-                <when test="criterion.singleValue">
-                  and ${criterion.condition} #{criterion.value}
-                </when>
-                <when test="criterion.betweenValue">
-                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
-                </when>
-                <when test="criterion.listValue">
-                  and ${criterion.condition}
-                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
-                    #{listItem}
-                  </foreach>
-                </when>
-              </choose>
+    <resultMap id="BaseResultMap" type="com.ampserver.mbg.model.AssetsState">
+        <id column="pk_id" jdbcType="INTEGER" property="pk_id"/>
+        <result column="fk_ast_id" jdbcType="INTEGER" property="fk_ast_id"/>
+        <result column="current_state" jdbcType="INTEGER" property="current_state"/>
+        <result column="location" jdbcType="VARCHAR" property="location"/>
+        <result column="create_tim" jdbcType="TIMESTAMP" property="create_tim"/>
+        <result column="correction_tim" jdbcType="TIMESTAMP" property="correction_tim"/>
+    </resultMap>
+    <sql id="Example_Where_Clause">
+        <where>
+            <foreach collection="oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="("
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
             </foreach>
-          </trim>
-        </if>
-      </foreach>
-    </where>
-  </sql>
-  <sql id="Update_By_Example_Where_Clause">
-    <where>
-      <foreach collection="example.oredCriteria" item="criteria" separator="or">
-        <if test="criteria.valid">
-          <trim prefix="(" prefixOverrides="and" suffix=")">
-            <foreach collection="criteria.criteria" item="criterion">
-              <choose>
-                <when test="criterion.noValue">
-                  and ${criterion.condition}
-                </when>
-                <when test="criterion.singleValue">
-                  and ${criterion.condition} #{criterion.value}
-                </when>
-                <when test="criterion.betweenValue">
-                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
-                </when>
-                <when test="criterion.listValue">
-                  and ${criterion.condition}
-                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
-                    #{listItem}
-                  </foreach>
-                </when>
-              </choose>
+        </where>
+    </sql>
+    <sql id="Update_By_Example_Where_Clause">
+        <where>
+            <foreach collection="example.oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="("
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
             </foreach>
-          </trim>
+        </where>
+    </sql>
+    <sql id="Base_Column_List">
+        pk_id, fk_ast_id, current_state, location, create_tim, correction_tim
+    </sql>
+    <select id="selectByExample" parameterType="com.ampserver.mbg.model.AssetsStateExample" resultMap="BaseResultMap">
+        select
+        <if test="distinct">
+            distinct
         </if>
-      </foreach>
-    </where>
-  </sql>
-  <sql id="Base_Column_List">
-    pk_id, fk_ast_id, current_state, location, create_tim, correction_tim
-  </sql>
-  <select id="selectByExample" parameterType="com.ampserver.mbg.model.AssetsStateExample" resultMap="BaseResultMap">
-    select
-    <if test="distinct">
-      distinct
-    </if>
-    <include refid="Base_Column_List" />
-    from assets_state
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-    <if test="orderByClause != null">
-      order by ${orderByClause}
-    </if>
-  </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from assets_state
-    where pk_id = #{pk_id,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from assets_state
-    where pk_id = #{pk_id,jdbcType=INTEGER}
-  </delete>
-  <delete id="deleteByExample" parameterType="com.ampserver.mbg.model.AssetsStateExample">
-    delete from assets_state
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-  </delete>
-  <insert id="insert" parameterType="com.ampserver.mbg.model.AssetsState">
-    insert into assets_state (pk_id, fk_ast_id, current_state, 
-      location, create_tim, correction_tim
-      )
-    values (#{pk_id,jdbcType=INTEGER}, #{fk_ast_id,jdbcType=INTEGER}, #{current_state,jdbcType=INTEGER}, 
-      #{location,jdbcType=VARCHAR}, #{create_tim,jdbcType=TIMESTAMP}, #{correction_tim,jdbcType=TIMESTAMP}
-      )
-  </insert>
-  <insert id="insertSelective" parameterType="com.ampserver.mbg.model.AssetsState">
-    insert into assets_state
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="pk_id != null">
-        pk_id,
-      </if>
-      <if test="fk_ast_id != null">
-        fk_ast_id,
-      </if>
-      <if test="current_state != null">
-        current_state,
-      </if>
-      <if test="location != null">
-        location,
-      </if>
-      <if test="create_tim != null">
-        create_tim,
-      </if>
-      <if test="correction_tim != null">
-        correction_tim,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="pk_id != null">
-        #{pk_id,jdbcType=INTEGER},
-      </if>
-      <if test="fk_ast_id != null">
-        #{fk_ast_id,jdbcType=INTEGER},
-      </if>
-      <if test="current_state != null">
-        #{current_state,jdbcType=INTEGER},
-      </if>
-      <if test="location != null">
-        #{location,jdbcType=VARCHAR},
-      </if>
-      <if test="create_tim != null">
-        #{create_tim,jdbcType=TIMESTAMP},
-      </if>
-      <if test="correction_tim != null">
-        #{correction_tim,jdbcType=TIMESTAMP},
-      </if>
-    </trim>
-  </insert>
-  <select id="countByExample" parameterType="com.ampserver.mbg.model.AssetsStateExample" resultType="java.lang.Long">
-    select count(*) from assets_state
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-  </select>
-  <update id="updateByExampleSelective" parameterType="map">
-    update assets_state
-    <set>
-      <if test="record.pk_id != null">
-        pk_id = #{record.pk_id,jdbcType=INTEGER},
-      </if>
-      <if test="record.fk_ast_id != null">
+        <include refid="Base_Column_List"/>
+        from assets_state
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+        <if test="orderByClause != null">
+            order by ${orderByClause}
+        </if>
+    </select>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from assets_state
+        where pk_id = #{pk_id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete
+        from assets_state
+        where pk_id = #{pk_id,jdbcType=INTEGER}
+    </delete>
+    <delete id="deleteByExample" parameterType="com.ampserver.mbg.model.AssetsStateExample">
+        delete from assets_state
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </delete>
+    <insert id="insert" parameterType="com.ampserver.mbg.model.AssetsState">
+        insert into assets_state (pk_id, fk_ast_id, current_state,
+                                  location, create_tim, correction_tim)
+        values (#{pk_id,jdbcType=INTEGER}, #{fk_ast_id,jdbcType=INTEGER}, #{current_state,jdbcType=INTEGER},
+                #{location,jdbcType=VARCHAR}, #{create_tim,jdbcType=TIMESTAMP}, #{correction_tim,jdbcType=TIMESTAMP})
+    </insert>
+    <insert id="insertSelective" parameterType="com.ampserver.mbg.model.AssetsState">
+        insert into assets_state
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pk_id != null">
+                pk_id,
+            </if>
+            <if test="fk_ast_id != null">
+                fk_ast_id,
+            </if>
+            <if test="current_state != null">
+                current_state,
+            </if>
+            <if test="location != null">
+                location,
+            </if>
+            <if test="create_tim != null">
+                create_tim,
+            </if>
+            <if test="correction_tim != null">
+                correction_tim,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="pk_id != null">
+                #{pk_id,jdbcType=INTEGER},
+            </if>
+            <if test="fk_ast_id != null">
+                #{fk_ast_id,jdbcType=INTEGER},
+            </if>
+            <if test="current_state != null">
+                #{current_state,jdbcType=INTEGER},
+            </if>
+            <if test="location != null">
+                #{location,jdbcType=VARCHAR},
+            </if>
+            <if test="create_tim != null">
+                #{create_tim,jdbcType=TIMESTAMP},
+            </if>
+            <if test="correction_tim != null">
+                #{correction_tim,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+    <select id="countByExample" parameterType="com.ampserver.mbg.model.AssetsStateExample" resultType="java.lang.Long">
+        select count(*) from assets_state
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </select>
+    <update id="updateByExampleSelective" parameterType="map">
+        update assets_state
+        <set>
+            <if test="record.pk_id != null">
+                pk_id = #{record.pk_id,jdbcType=INTEGER},
+            </if>
+            <if test="record.fk_ast_id != null">
+                fk_ast_id = #{record.fk_ast_id,jdbcType=INTEGER},
+            </if>
+            <if test="record.current_state != null">
+                current_state = #{record.current_state,jdbcType=INTEGER},
+            </if>
+            <if test="record.location != null">
+                location = #{record.location,jdbcType=VARCHAR},
+            </if>
+            <if test="record.create_tim != null">
+                create_tim = #{record.create_tim,jdbcType=TIMESTAMP},
+            </if>
+            <if test="record.correction_tim != null">
+                correction_tim = #{record.correction_tim,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="updateByExample" parameterType="map">
+        update assets_state
+        set pk_id = #{record.pk_id,jdbcType=INTEGER},
         fk_ast_id = #{record.fk_ast_id,jdbcType=INTEGER},
-      </if>
-      <if test="record.current_state != null">
         current_state = #{record.current_state,jdbcType=INTEGER},
-      </if>
-      <if test="record.location != null">
         location = #{record.location,jdbcType=VARCHAR},
-      </if>
-      <if test="record.create_tim != null">
         create_tim = #{record.create_tim,jdbcType=TIMESTAMP},
-      </if>
-      <if test="record.correction_tim != null">
-        correction_tim = #{record.correction_tim,jdbcType=TIMESTAMP},
-      </if>
-    </set>
-    <if test="_parameter != null">
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
-  <update id="updateByExample" parameterType="map">
-    update assets_state
-    set pk_id = #{record.pk_id,jdbcType=INTEGER},
-      fk_ast_id = #{record.fk_ast_id,jdbcType=INTEGER},
-      current_state = #{record.current_state,jdbcType=INTEGER},
-      location = #{record.location,jdbcType=VARCHAR},
-      create_tim = #{record.create_tim,jdbcType=TIMESTAMP},
-      correction_tim = #{record.correction_tim,jdbcType=TIMESTAMP}
-    <if test="_parameter != null">
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.ampserver.mbg.model.AssetsState">
-    update assets_state
-    <set>
-      <if test="fk_ast_id != null">
-        fk_ast_id = #{fk_ast_id,jdbcType=INTEGER},
-      </if>
-      <if test="current_state != null">
-        current_state = #{current_state,jdbcType=INTEGER},
-      </if>
-      <if test="location != null">
-        location = #{location,jdbcType=VARCHAR},
-      </if>
-      <if test="create_tim != null">
-        create_tim = #{create_tim,jdbcType=TIMESTAMP},
-      </if>
-      <if test="correction_tim != null">
-        correction_tim = #{correction_tim,jdbcType=TIMESTAMP},
-      </if>
-    </set>
-    where pk_id = #{pk_id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.ampserver.mbg.model.AssetsState">
-    update assets_state
-    set fk_ast_id = #{fk_ast_id,jdbcType=INTEGER},
-      current_state = #{current_state,jdbcType=INTEGER},
-      location = #{location,jdbcType=VARCHAR},
-      create_tim = #{create_tim,jdbcType=TIMESTAMP},
-      correction_tim = #{correction_tim,jdbcType=TIMESTAMP}
-    where pk_id = #{pk_id,jdbcType=INTEGER}
-  </update>
+        correction_tim = #{record.correction_tim,jdbcType=TIMESTAMP}
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="updateByPrimaryKeySelective" parameterType="com.ampserver.mbg.model.AssetsState">
+        update assets_state
+        <set>
+            <if test="fk_ast_id != null">
+                fk_ast_id = #{fk_ast_id,jdbcType=INTEGER},
+            </if>
+            <if test="current_state != null">
+                current_state = #{current_state,jdbcType=INTEGER},
+            </if>
+            <if test="location != null">
+                location = #{location,jdbcType=VARCHAR},
+            </if>
+            <if test="create_tim != null">
+                create_tim = #{create_tim,jdbcType=TIMESTAMP},
+            </if>
+            <if test="correction_tim != null">
+                correction_tim = #{correction_tim,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        where pk_id = #{pk_id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.ampserver.mbg.model.AssetsState">
+        update assets_state
+        set fk_ast_id      = #{fk_ast_id,jdbcType=INTEGER},
+            current_state  = #{current_state,jdbcType=INTEGER},
+            location       = #{location,jdbcType=VARCHAR},
+            create_tim     = #{create_tim,jdbcType=TIMESTAMP},
+            correction_tim = #{correction_tim,jdbcType=TIMESTAMP}
+        where pk_id = #{pk_id,jdbcType=INTEGER}
+    </update>
 </mapper>

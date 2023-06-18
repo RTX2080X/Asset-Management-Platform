@@ -2,7 +2,9 @@ package com.ampserver.mbg.mapper;
 
 import com.ampserver.mbg.model.AssetsRecord;
 import com.ampserver.mbg.model.AssetsRecordExample;
+
 import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface AssetsRecordMapper {

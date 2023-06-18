@@ -2,9 +2,10 @@ package com.ampserver.mbg.mapper;
 
 import com.ampserver.mbg.model.AssetsState;
 import com.ampserver.mbg.model.AssetsStateExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.session.RowBounds;
+
+import java.util.List;
 
 public interface AssetsStateMapper {
     long countByExample(AssetsStateExample example);

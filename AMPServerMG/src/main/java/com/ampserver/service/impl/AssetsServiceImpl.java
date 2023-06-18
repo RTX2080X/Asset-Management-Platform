@@ -13,7 +13,6 @@ import com.ampserver.mbg.model.Assets;
 import com.ampserver.mbg.model.AssetsExample;
 import com.ampserver.service.AssetsService;
 import com.github.pagehelper.PageHelper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

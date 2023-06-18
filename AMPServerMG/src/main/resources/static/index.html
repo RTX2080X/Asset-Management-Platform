@@ -11,9 +11,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
     <title>管理平台</title>
-    <link rel="stylesheet" href="layui/css/layui.css">
+    <link href="layui/css/layui.css" rel="stylesheet">
 </head>
 
 <body>
@@ -30,7 +30,7 @@
             <!-- 以下元素是权限管理通过再生成 -->
             <li class="layui-nav-item ">
                 <a href="javascript:">
-                    <img src="img/kita.png" class="layui-nav-img" alt="">
+                    <img alt="" class="layui-nav-img" src="img/kita.png">
                     as
                 </a>
                 <dl class="layui-nav-child">
@@ -69,9 +69,9 @@
         </div>
     </div>
     <div class="layui-body">
-        <div class="layui-tab layui-tab-brief" lay-filter="handler-hash" lay-allowclose="true">
+        <div class="layui-tab layui-tab-brief" lay-allowclose="true" lay-filter="handler-hash">
             <ul class="layui-tab-title">
-                <li lay-id="000" class="layui-this">首页</li>
+                <li class="layui-this" lay-id="000">首页</li>
             </ul>
             <div class="layui-tab-content">
                 <div class="layui-tab-item layui-show">

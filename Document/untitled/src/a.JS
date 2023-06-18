@@ -6,7 +6,7 @@
  * Vestibulum commodo. Ut rhoncus gravida arcu.
  */
 
-var test01=new Array[
+var test01 = new Array[
     {
         "id": "10001",
         "username": "李白",

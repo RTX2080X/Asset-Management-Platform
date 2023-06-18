@@ -1,26 +1,26 @@
- [
-        {
-            "id": 1,
-            "name": "sa",
-            "pwd": "123",
-            "remake": "qq"
-        },
-        {
-            "id": 2,
-            "name": "sdfaghsr",
-            "pwd": "123r243g",
-            "remake": null
-        },
-        {
-            "id": 3,
-            "name": "dfu",
-            "pwd": "231",
-            "remake": null
-        },
-        {
-            "id": 4,
-            "name": "@&y8fUVOf#$TGf",
-            "pwd": "fgrewQQWF23wf@",
-            "remake": "6fdotis"
-        }
-    ]
+[
+  {
+    "id": 1,
+    "name": "sa",
+    "pwd": "123",
+    "remake": "qq"
+  },
+  {
+    "id": 2,
+    "name": "sdfaghsr",
+    "pwd": "123r243g",
+    "remake": null
+  },
+  {
+    "id": 3,
+    "name": "dfu",
+    "pwd": "231",
+    "remake": null
+  },
+  {
+    "id": 4,
+    "name": "@&y8fUVOf#$TGf",
+    "pwd": "fgrewQQWF23wf@",
+    "remake": "6fdotis"
+  }
+]

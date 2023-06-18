@@ -1,29 +1,24 @@
 package com.ampserver.mbg.model;
 
 import io.swagger.annotations.ApiModelProperty;
+
 import java.io.Serializable;
 import java.util.Date;
 
 public class AssetsState implements Serializable {
+    private static final long serialVersionUID = 1L;
     @ApiModelProperty(value = "id")
     private Integer pk_id;
-
     @ApiModelProperty(value = "资产类型ID")
     private Integer fk_ast_id;
-
     @ApiModelProperty(value = "状态代码")
     private Integer current_state;
-
     @ApiModelProperty(value = "框架")
     private String location;
-
     @ApiModelProperty(value = "登机时间")
     private Date create_tim;
-
     @ApiModelProperty(value = "更新时间")
     private Date correction_tim;
-
-    private static final long serialVersionUID = 1L;
 
     public Integer getPk_id() {
         return pk_id;

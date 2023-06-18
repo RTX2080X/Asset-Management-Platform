@@ -2,9 +2,10 @@ package com.ampserver.mbg.mapper;
 
 import com.ampserver.mbg.model.Authorization;
 import com.ampserver.mbg.model.AuthorizationExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.session.RowBounds;
+
+import java.util.List;
 
 public interface AuthorizationMapper {
     long countByExample(AuthorizationExample example);

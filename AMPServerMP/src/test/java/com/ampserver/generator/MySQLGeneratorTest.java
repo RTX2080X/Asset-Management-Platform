@@ -29,6 +29,10 @@ public class MySQLGeneratorTest {
     @Autowired
     private Environment environment;
 
+    protected static List<String> getTables(String tables) {
+        return "all".equals(tables) ? Collections.emptyList() : Arrays.asList(tables.split(","));
+    }
+
     @Test
 //    @ConfigurationProperties
     public void Generator() {
@@ -67,10 +71,6 @@ public class MySQLGeneratorTest {
                         .enableHyphenStyle()
                 ).execute();
 
-    }
-
-    protected static List<String> getTables(String tables) {
-        return "all".equals(tables) ? Collections.emptyList() : Arrays.asList(tables.split(","));
     }
 
     @Test

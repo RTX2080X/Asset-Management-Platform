@@ -1,23 +1,20 @@
 package com.ampserver.mbg.model;
 
 import io.swagger.annotations.ApiModelProperty;
+
 import java.io.Serializable;
 import java.util.Date;
 
 public class Role implements Serializable {
+    private static final long serialVersionUID = 1L;
     @ApiModelProperty(value = "id")
     private Integer pk_id;
-
     @ApiModelProperty(value = "角色名")
     private String nam;
-
     @ApiModelProperty(value = "创建时间")
     private Date create_tim;
-
     @ApiModelProperty(value = "更新时间")
     private Date correction_tim;
-
-    private static final long serialVersionUID = 1L;
 
     public Integer getPk_id() {
         return pk_id;

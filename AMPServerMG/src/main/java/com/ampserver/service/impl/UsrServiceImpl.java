@@ -14,7 +14,6 @@ import com.ampserver.mbg.model.UsrExample;
 import com.ampserver.service.UsrService;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -24,7 +23,7 @@ import java.util.Map;
 
 @Service
 public class UsrServiceImpl implements UsrService {
-//    @Autowired
+    //    @Autowired
     @Resource
     private UsrMapper mapper;
 
@@ -42,7 +41,7 @@ public class UsrServiceImpl implements UsrService {
         return map;
     }
 
-//    @Override
+    //    @Override
     public List<Usr> findAll2() {
         PageHelper.startPage(1, 2);
         List<Usr> list = mapper.selectByExample(null);

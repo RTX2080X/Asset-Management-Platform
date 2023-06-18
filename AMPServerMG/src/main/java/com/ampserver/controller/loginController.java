@@ -8,17 +8,10 @@
 
 package com.ampserver.controller;
 
-import com.ampserver.mbg.model.Usr;
 import com.ampserver.service.UsrService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
-import java.util.List;
-import java.util.Map;
 
 @RestController
 public class loginController {

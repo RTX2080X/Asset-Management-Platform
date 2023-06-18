@@ -2,9 +2,10 @@ package com.ampserver.mbg.mapper;
 
 import com.ampserver.mbg.model.Permission;
 import com.ampserver.mbg.model.PermissionExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.session.RowBounds;
+
+import java.util.List;
 
 public interface PermissionMapper {
     long countByExample(PermissionExample example);

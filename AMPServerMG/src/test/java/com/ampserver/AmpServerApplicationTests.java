@@ -19,7 +19,7 @@ class AmpServerApplicationTests {
     }
 
     @Test
-    void exampleTest(){
+    void exampleTest() {
 
     }
 

@@ -1,20 +1,18 @@
 package com.ampserver.mbg.model;
 
 import io.swagger.annotations.ApiModelProperty;
+
 import java.io.Serializable;
 import java.util.Date;
 
 public class Transfer implements Serializable {
+    private static final long serialVersionUID = 1L;
     @ApiModelProperty(value = "用户ID")
     private Integer fk_usr_id;
-
     @ApiModelProperty(value = "角色ID")
     private Integer fk_rol_id;
-
     @ApiModelProperty(value = "调动时间")
     private Date transfer_tim;
-
-    private static final long serialVersionUID = 1L;
 
     public Integer getFk_usr_id() {
         return fk_usr_id;

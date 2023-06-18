@@ -2,7 +2,9 @@ package com.ampserver.mbg.mapper;
 
 import com.ampserver.mbg.model.Role;
 import com.ampserver.mbg.model.RoleExample;
+
 import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface RoleMapper {

@@ -12,7 +12,6 @@ import com.ampserver.mbg.model.Assets;
 import com.ampserver.service.AssetsService;
 import com.ampserver.utils.result.CommonPage;
 import com.ampserver.utils.result.CommonResult;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;

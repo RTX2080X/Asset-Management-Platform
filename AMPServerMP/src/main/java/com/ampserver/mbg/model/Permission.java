@@ -1,26 +1,22 @@
 package com.ampserver.mbg.model;
 
 import io.swagger.annotations.ApiModelProperty;
+
 import java.io.Serializable;
 import java.util.Date;
 
 public class Permission implements Serializable {
+    private static final long serialVersionUID = 1L;
     @ApiModelProperty(value = "id")
     private Integer pk_id;
-
     @ApiModelProperty(value = "权限名称")
     private String str;
-
     @ApiModelProperty(value = "备注")
     private String remake;
-
     @ApiModelProperty(value = "创建时间")
     private Date create_tim;
-
     @ApiModelProperty(value = "更新时间")
     private Date correction_tim;
-
-    private static final long serialVersionUID = 1L;
 
     public Integer getPk_id() {
         return pk_id;

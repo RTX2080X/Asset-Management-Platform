@@ -2,9 +2,10 @@ package com.ampserver.mbg.mapper;
 
 import com.ampserver.mbg.model.Transfer;
 import com.ampserver.mbg.model.TransferExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.session.RowBounds;
+
+import java.util.List;
 
 public interface TransferMapper {
     long countByExample(TransferExample example);

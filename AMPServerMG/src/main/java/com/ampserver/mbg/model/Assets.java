@@ -1,59 +1,44 @@
 package com.ampserver.mbg.model;
 
 import io.swagger.annotations.ApiModelProperty;
+
 import java.io.Serializable;
 import java.util.Date;
 
 public class Assets implements Serializable {
+    private static final long serialVersionUID = 1L;
     @ApiModelProperty(value = "ID")
     private Integer pk_Id;
-
     @ApiModelProperty(value = "位号")
     private String location;
-
     @ApiModelProperty(value = "型号")
     private String tpe;
-
     @ApiModelProperty(value = "扬程(m)")
     private Integer pump_head;
-
     @ApiModelProperty(value = "流量(m3/h)")
     private Float flow;
-
     @ApiModelProperty(value = "转速(r/min)")
     private Integer rpm;
-
     @ApiModelProperty(value = "重量")
     private Integer quality;
-
     @ApiModelProperty(value = "备件")
     private String spare_part;
-
     @ApiModelProperty(value = "功率(kw)")
     private Float powr;
-
     @ApiModelProperty(value = "出厂日期")
     private Date factory_tim;
-
     @ApiModelProperty(value = "出厂编号")
     private String factory_num;
-
     @ApiModelProperty(value = "厂家")
     private String factory_nam;
-
     @ApiModelProperty(value = "泵型")
     private String category;
-
     @ApiModelProperty(value = "备注")
     private String remake;
-
     @ApiModelProperty(value = "建档时间")
     private Date create_tim;
-
     @ApiModelProperty(value = "更新时间")
     private Date correction_tim;
-
-    private static final long serialVersionUID = 1L;
 
     public Integer getPk_Id() {
         return pk_Id;
