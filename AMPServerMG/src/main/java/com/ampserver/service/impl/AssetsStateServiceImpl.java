@@ -26,6 +26,6 @@ public class AssetsStateServiceImpl implements AssetsStateService {
     @Override
     public List<AssetsState> page(int pageNum, int pageSize) {
         PageHelper.startPage(pageNum, pageSize);
-        return mapper.selectByExample(null)w;
+        return mapper.selectByExample(null);
     }
 }

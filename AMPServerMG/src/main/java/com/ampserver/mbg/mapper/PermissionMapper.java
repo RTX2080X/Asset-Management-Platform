@@ -1,17 +1,10 @@
-/*
- * Copyright (c) 2023. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
- * Morbi non lorem porttitor neque feugiat blandit. Ut vitae ipsum eget quam lacinia accumsan.
- * Etiam sed turpis ac ipsum condimentum fringilla. Maecenas magna.
- * Proin dapibus sapien vel ante. Aliquam erat volutpat. Pellentesque sagittis ligula eget metus.
- * Vestibulum commodo. Ut rhoncus gravida arcu.
- */
-
 package com.ampserver.mbg.mapper;
 
 import com.ampserver.mbg.model.Permission;
 import com.ampserver.mbg.model.PermissionExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.session.RowBounds;
 
 public interface PermissionMapper {
     long countByExample(PermissionExample example);
@@ -23,6 +16,8 @@ public interface PermissionMapper {
     int insert(Permission record);
 
     int insertSelective(Permission record);
+
+    List<Permission> selectByExampleWithRowbounds(PermissionExample example, RowBounds rowBounds);
 
     List<Permission> selectByExample(PermissionExample example);
 

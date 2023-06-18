@@ -27,7 +27,7 @@
         <!-- 多次生成Mapper.Xml不重复 -->
         <plugin type="org.mybatis.generator.plugins.UnmergeableXmlMappersPlugin"/>
         <!-- 分页plugin -->
-<!--        <plugin type="org.mybatis.generator.plugins.RowBoundsPlugin"/>-->
+        <plugin type="org.mybatis.generator.plugins.RowBoundsPlugin"/>
         <!-- 格式化Java代码 -->
         <!--                <plugin type="org.mybatis.generator.api.dom.DefaultJavaFormatter"/>-->
         <!-- 格式化XML代码 -->
