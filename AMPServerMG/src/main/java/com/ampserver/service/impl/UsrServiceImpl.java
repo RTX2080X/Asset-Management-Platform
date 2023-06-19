@@ -41,6 +41,12 @@ public class UsrServiceImpl implements UsrService {
         return map;
     }
 
+    @Override
+    public List<Usr> usrList(int pageNum, int pageSize) {
+        PageHelper.startPage(pageNum, pageSize);
+        return mapper.selectByExample(null);
+    }
+
     //    @Override
     public List<Usr> findAll2() {
         PageHelper.startPage(1, 2);

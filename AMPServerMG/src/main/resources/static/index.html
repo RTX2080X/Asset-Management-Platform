@@ -22,12 +22,12 @@
     <div class="layui-header">
         <div class="layui-logo layui-hide-xs layui-bg-green">后台管理</div>
         <ul class="layui-nav layui-layout-left">
-            <li class="layui-nav-item  layui-hide-xs">
+            <li class="layui-nav-item  layui-hide-xs" id="li-link-btn">
                 <a href="javascript:">table-test-btn1</a>
             </li>
         </ul>
         <ul class="layui-nav layui-layout-right">
-            <!-- 以下元素是权限管理通过再生成 -->
+            <!-- 以下元素是权限管理通过再生成(未实现) -->
             <li class="layui-nav-item ">
                 <a href="javascript:">
                     <img alt="" class="layui-nav-img" src="img/kita.png">
@@ -62,7 +62,7 @@
                 <li class="layui-nav-item">
                     <a href="javascript:">用户管理</a>
                     <dl class="layui-nav-child">
-                        <dd lay-id="20"><a href="javascript:" lay-id="200">修改密码</a></dd>
+                        <dd lay-id="20"><a href="javascript:" lay-id="200">用户列表</a></dd>
                     </dl>
                 </li>
             </ul>
@@ -75,7 +75,8 @@
             </ul>
             <div class="layui-tab-content">
                 <div class="layui-tab-item layui-show">
-
+                    <h1>你好～</h1>
+<!--                    <table class="layui-hide" id="ID-table-demo-data"></table>-->
                 </div>
             </div>
         </div>
@@ -84,14 +85,61 @@
 
 
 <script src="layui/layui.js"></script>
+<script src="js/tableColsAndUrl.js"></script>
+<script type="text/html" id="toolbarDemo">
+    <div class="layui-btn-container">
+        <!--        <button class="layui-btn layui-btn-sm" lay-event="add">添加</button>-->
+        <!--        <button class="layui-btn layui-btn-sm" lay-event="delete">删除</button>-->
+        <!--        <button class="layui-btn layui-btn-sm" lay-event="update">编辑</button>-->
+    </div>
+</script>
 <script>
     layui.use(function () {
         const element = layui.element;
         // const layer = layui.layer;
         // const utils = layui.util;
         const $ = layui.$;
+        const table = layui.table;
         const hashName = 'tabId';
         const layId = location.hash.replace(new RegExp('^#' + hashName + '='), '')
+        // $('#li-link-btn').on('click', function () {
+        //     table.render({
+        //         id: 'qwertd',
+        //         elem: '#ID-table-demo-data',
+        //         request: {
+        //             pageName: 'pageName',
+        //             limitName: 'pageSize'
+        //         },
+        //         toolbar: '#toolbarDemo',
+        //         defaultToolbar: ['filter', 'exports'],
+        //         cols: [[
+        //             {field: 'location', title: '框架ID'},
+        //             {field: 'tpe', title: '类型'},
+        //             {field: 'pump_head', title: '扬程'},
+        //             {field: 'flow', title: 'flow'},
+        //             {field: 'rpm', title: '转速'},
+        //             {field: 'quality', title: '重量'},
+        //             {field: 'spare_part', title: '备件'},
+        //             {field: 'powr', title: '功率'},
+        //             {field: 'factory_tim', title: '出厂日期'},
+        //             {field: 'factory_num', title: '出场数量'},
+        //             {field: 'factory_nam', title: '厂家名称'},
+        //             {field: 'category', title: 'category'},
+        //             {field: 'remake1', title: '备注'}
+        //         ]],
+        //         page: true,
+        //         url: 'testData.json',
+        //         dataType: 'json',
+        //         parseData: function (res) {
+        //             return {
+        //                 'code': 0,
+        //                 'msg': res.message,
+        //                 'count': res.data.total,
+        //                 'data': res.data.list
+        //             }
+        //         }
+        //     })
+        // })
         element.on('nav(navside)', function (obj) {
             // layer.msg(obj);
             var cId = $(obj).attr('lay-id')
@@ -100,13 +148,36 @@
             if (typeof cId != "undefined" && exitObj === 0) {
                 element.tabAdd('handler-hash', {
                     title: obj.text(),
-                    content: obj.text() + '123123',
-                    id: $(obj).attr('lay-id') + '0'
+                    content: '<table class="layui-hide" id="table-' + cId + '-data"></table>',
+                    id: $(obj).attr('lay-id') + '0',
+                    change: true
                 })
-            } else if (typeof cId == "undefined") {
-                return;
+                // 为table添加数据
+                let tableStr = new ObjTableStr(cId);
+                table.render({
+                    id: 'table-' + cId,
+                    elem: '#table-' + cId + '-data',
+                    request: {
+                        pageName: 'pn',
+                        limitName: 'ps'
+                    },
+                    page: true,
+                    cols: tableStr.tabCols,
+                    pages: true,
+                    url: tableStr.tabUrl,
+                    dataType: 'json',
+                    parseData: function (res) {
+                        return {
+                            'code': 0,
+                            'msg': res.message,
+                            'count': res.data.total,
+                            'data': res.data.list
+                        }
+                    }
+                })
+            } else if (exitObj > 0) {
+                element.tabChange('handler-hash', $(obj).attr('lay-id') + '0')
             }
-            element.tabChange('handler-hash', $(obj).attr('lay-id') + '0')
         })
         element.tabChange('handler-hash', layId)
         element.on('tab(handler-hash)', function () {
@@ -115,6 +186,7 @@
         // ↓为动态加载后刷新侧nav
         element.render('nav')
     })
+
 </script>
 </body>
 

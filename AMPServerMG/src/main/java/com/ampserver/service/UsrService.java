@@ -8,10 +8,14 @@
 
 package com.ampserver.service;
 
+import com.ampserver.mbg.model.Usr;
+
+import java.util.List;
 import java.util.Map;
 
 public interface UsrService {
     public Map findAll();
 
+    public List<Usr> usrList(int pageNum, int pageSize);
 
 }
