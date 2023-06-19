@@ -62,7 +62,7 @@
                 <li class="layui-nav-item">
                     <a href="javascript:">用户管理</a>
                     <dl class="layui-nav-child">
-                        <dd lay-id="20"><a href="javascript:" lay-id="200">用户列表</a></dd>
+                        <dd><a href="javascript:" lay-id="20">用户列表</a></dd>
                     </dl>
                 </li>
             </ul>
@@ -166,6 +166,8 @@
                     pages: true,
                     url: tableStr.tabUrl,
                     dataType: 'json',
+                    toolbar: '#toolbarDemo',
+                    defaultToolbar: ['filter', 'exports'],
                     parseData: function (res) {
                         return {
                             'code': 0,

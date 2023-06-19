@@ -17,7 +17,7 @@ function ObjTableStr(cId) {
                 {field: 'factory_tim', title: '出厂日期'},
                 {field: 'factory_num', title: '出场数量'},
                 {field: 'factory_nam', title: '厂家名称'},
-                {field: 'category', title: 'category'},
+                {field: 'category', title: '泵型'},
                 {field: 'remake1', title: '备注'}
             ]]
             break;
