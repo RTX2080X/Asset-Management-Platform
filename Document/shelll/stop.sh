@@ -1,5 +1,4 @@
 
-#! /bin/shell
 
 
 appName='AMPServer'
